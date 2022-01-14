@@ -19,7 +19,6 @@ app.get("/", function (req, res) {
 app.get("/weather", function (req, res) {
   const city = req.query.city;
   const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.API_KEY}`;
-  console.log(url);
   axios
     .get(url)
     .then(function (response) {
@@ -28,7 +27,7 @@ app.get("/weather", function (req, res) {
           city +
           " is " +
           KtoC(response.data.main.temp) +
-          " the weather description is " +
+          "ºC the weather description is " +
           response.data.weather[0].description
       );
     })
